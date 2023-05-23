@@ -1,3 +1,66 @@
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  background-color: #F5F5F5;
+}
+
+img {
+    width: 40%;
+}
+
+.margin {
+    margin: 2% auto 5%;
+}
+
+button {
+    background: #DBA726;
+    padding: 2% 4%;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    box-shadow: 0px 10px 15px -6px rgba(0,0,0,0.2);
+    font-size: 100%;
+    font-weight: bold;
+}
+
+button:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input[type='password'], input {
+    padding: 2%;
+    /* margin-bottom: -1%; */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 100%;
+    background-color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.center {
+    margin: 5% auto 0%;
+    text-align: center;
+}
+
+/* CHATBOX */
 .chat-wrapper {
     font: bold 11px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
     background: #00a6bb;

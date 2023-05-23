@@ -12,7 +12,7 @@
     <h1>RECHERCHE DANS LE CHAT</h1>
     <h2>Vous êtes connecté en tant que <?php echo $_SESSION['user_name'] ?> </h2>
     <form role="form" method="post" action="search">
-        <input type="text" name="input" placeholder="Saisir un mot clé" maxlength="15">
+        <input type="search" name="input" placeholder="Saisir un mot clé" maxlength="50" pattern="^[A-Za-zÀ-ÿ0-9 '.!?-]+$">
         <button type="submit" name="search" class="btn btn-info">Envoyer</button>
     </form>
 

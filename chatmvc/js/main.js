@@ -1,7 +1,9 @@
+// détermination de la couleur de l'utilisateur pour la session courante
 const colors = ['#007AFF', '#FF7000', '#FF7000', '#15E25F', '#CFC700', '#CFC700', '#CF1100', '#CF00BE', '#F00'];
 const color_pick = Math.floor(Math.random() * colors.length);
 const color = colors[color_pick];
 
+// split de l'url afin de déterminer le numéro de la chatbox courante
 var url = window.location.href;
 const urlExploded = url.split('/');
 const room = urlExploded[urlExploded.length - 1];
@@ -27,6 +29,7 @@ websocket.onmessage = function(ev) {
 
     switch (res_type) {
         case 'usermsg':
+            // n'envoie le message que dans la room dont le numéro est le même que celle d'où écrit l'utilisateur
             if (user_room === room) {
             msgBox.append('<div><span class="user_name" style="color:' + user_color + '">' + user_name + '</span> : <span class="user_message">' + user_message + '</span></div>');
             }
@@ -77,17 +80,19 @@ function send_message() {
     var msg = {
         message: message_input.val(),
         name: name_input.val(),
-        // color: '"<?php echo $colors[$color_pick]; ?>"'
         color: color,
         room: room
     };
+
+    // déclenche la fonction store_data() avec en paramètre les informations composant le message
     store_message(msg);
-    // Envoyr les données du message à la base de données
+
     //convert and send data to server
     websocket.send(JSON.stringify(msg));
     message_input.val(''); //reset message input
 }
 
+// Envoie le message à chatController()->chatIndex() dans un $_POST
 function store_message(msg) {
 
     var message = msg.message;
@@ -97,19 +102,10 @@ function store_message(msg) {
     
     $.ajax({
         method: "POST",
-        url: window.location.href, // Replace with the URL to your chatController getMessage() endpoint
+        url: window.location.href, // Correspond à chatController()->chatIndex()
         data: { message: message, 
                 user: user,
                 color: color,
                 room: room },
-    
-        success: function(response) {
-          // Handle the response from the server
-          console.log(response);
-        },
-        error: function(error) {
-          // Handle any errors that occurred during the request
-          console.error(error);
-        }
     });
 }

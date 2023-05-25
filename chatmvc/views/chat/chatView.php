@@ -63,15 +63,15 @@
 					// Sinon l'input "name" est laissé enabled et l'utilisateur peut noter le pseudo de son choix
 					echo '<input name="name" id="name" placeholder="Your Name" maxlength="15" pattern="^[A-Za-zÀ-ÿ0-9 -]+$">';
 				} ?>
-				<input name="message" id="message" placeholder="Ecrivez un message" maxlength="100" pattern="^[A-Za-zÀ-ÿ0-9 '.!?-]+$">
-				<button class="chatButton">Envoyer</button>
+				<input name="message" id="message" placeholder="Ecrivez un message" maxlength="500" pattern="^[A-Za-zÀ-ÿ0-9 ',.:^!?-]+$">
+				<button class="chatButton" id="send-message">Envoyer</button>
 			</div>
 		</div>
 		<!-- Zone de recherche -->
 		<div class="recherche">
 			<form method="post">
 				<span>Rechercher <br>dans le chat :</span>
-				<input type="search" name="input" placeholder="Saisir un mot clé" maxlength="50" pattern="^[A-Za-zÀ-ÿ0-9 '.!?-]+$">
+				<input type="search" name="input" placeholder="Saisir un mot clé" >
 				<button type="submit" name="search">Rechercher</button>
 			</form>
 		</div>
@@ -79,7 +79,7 @@
 
 	<!-- Popup des résultats de recherche -->
 	<div class="overlay">
-		<div class="popup inscription">
+		<div class="popup searchResults">
 			<a class="close" href="">&times;</a>
 			<h1>Résultats de la recherche</h1>
 			<p style="text-align:center;margin:-1% auto 3%">Cliquez sur un résultat pour accéder à la room correspondante</p>

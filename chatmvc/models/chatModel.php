@@ -61,12 +61,11 @@ class chatModel {
 				ON messages.msg_user_id = users.user_id
 				JOIN rooms
 				ON messages.msg_room_id = rooms.room_id
-				WHERE MATCH (msg_text) AGAINST (:input);";
+				WHERE MATCH (msg_text) AGAINST ('$input*' IN BOOLEAN MODE);";
       	$query = $this->dbh->prepare($sql);
-		$query->bindParam(':input', $input, PDO::PARAM_STR);
 		$query->execute();
 		$result = $query->fetchAll(PDO::FETCH_OBJ);
-		
+
 		// Retourne tous les résutlats sous la forme d'un tableau d'objets
 		return $result;		
 	}

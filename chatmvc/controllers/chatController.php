@@ -44,8 +44,8 @@ class chatController {
 
                 if (!empty($user)
                 && !empty($message)
-                && strlen($message) <= 100
-                && preg_match("#^[A-Za-zÀ-ÿ0-9 '.!?-]+$#", $message)) {
+                && strlen($message) <= 500
+                && preg_match("#^[A-Za-zÀ-ÿ0-9 ',^:.!?-]+$#", $message)) {
                     // Il est stocké en base de donnée dans la table "messages"
                     $this->chatModel->storeMessage($user, $message, $time, $color, $room);
                 }
@@ -55,14 +55,11 @@ class chatController {
             if (isset ($_POST['search'])) {
                 $input = $this->valid_donnees($_POST['input']);
 
-                if (!empty($input)
-                && strlen($input) <= 50
-                && preg_match("#^[A-Za-zÀ-ÿ0-9 '.!?-]+$#", $input)) {
+                if (!empty($input)) {
                     // une recherche des mots clefs en bdd est effectuée
                     // pour sélectionner les messages les contenant
                     
                     $research = $this->chatModel->searchMessages($input);
-                    // error_log(json_encode($research));
                 }
             }
         }

@@ -17,7 +17,7 @@
           <div>
                <form method="post">
                     <div>
-                         <input type="email" name="email" placeholder="Entrez votre email" maxlength="50" pattern="^[\w-]+@([\w-]+)+[\w-]{2,4}$" required>
+                         <input type="email" name="email" placeholder="Entrez votre email" maxlength="50" pattern="^[A-Za-z]+@{1}[A-Za-z]+.{1}[A-Za-z]{2,}$" required>
                     </div>
 
                     <div>

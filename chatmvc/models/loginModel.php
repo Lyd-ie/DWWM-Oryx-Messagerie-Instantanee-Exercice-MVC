@@ -61,7 +61,7 @@ class loginModel {
 		&& !empty($pseudo)
 		&& strlen($pseudo) <= 50
 		&& preg_match("#^[A-Za-zÀ-ÿ0-9 '-]+$#", $pseudo)
-		&& preg_match("#^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$#", $email)) {
+		&& preg_match("#^[A-Za-z]+@{1}[A-Za-z]+.{1}[A-Za-z]{2,}$#", $email)) {
 
 			// Requête d'insertion en bdd
 			$sql = "INSERT INTO users (user_name, user_password, user_email)
@@ -88,7 +88,7 @@ class loginModel {
 		if (!empty($password)
 		&& strlen($cleanedPassword) <= 50
 		&& !empty($email)
-		&& preg_match("#^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$#", $email)) {
+		&& preg_match("#^[A-Za-z]+@{1}[A-Za-z]+.{1}[A-Za-z]{2,}$#", $email)) {
 
 			// Requête de modification de la table users en bdd
 			$sql = "UPDATE users SET user_password = :password WHERE user_email = :email";

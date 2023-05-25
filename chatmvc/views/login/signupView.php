@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="up">
+    <div class="center up">
         <p class="back">⪡ <a href="/online_formapro/messagerie/chatmvc">Retour</a></p>
         <img src="../css/logo" alt="logo">
         <h3>CREER UN COMPTE</h3>
@@ -21,7 +21,7 @@
                 </div>
                 
                 <div>
-                    <input type="email" name="email" placeholder="Entrez votre email" pattern="^[\w-]+@([\w-]+)+[\w-]{2,4}$" required>
+                    <input type="email" name="email" placeholder="Entrez votre email" pattern="^[A-Za-z]+@{1}[A-Za-z]+.{1}[A-Za-z]{2,}$" required>
                 </div>
 
                 <div>

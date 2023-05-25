@@ -32,7 +32,7 @@ websocket.onmessage = function(ev) {
         case 'usermsg':
             // n'envoie le message que dans la room dont le numéro est le même que celle d'où écrit l'utilisateur
             if (user_room === room) {
-            msgBox.append('<div><span class="user_name" style="color:' + user_color + '">' + user_name + '</span> : <span class="user_message">' + user_message + '</span></div>');
+            msgBox.append('<div style="margin: 2% auto"><span class="user_name" style="border-left: 2px solid ' + user_color + '">' + user_name + '</span> : <span class="user_message">' + user_message + '</span></div>');
             }
             break;
         case 'system':
@@ -69,12 +69,12 @@ function send_message() {
     var message_input = $('#message'); //user message text
     var name_input = $('#name'); //user name
 
-    if (message_input.val() == "") { //empty name?
-        alert("Enter your Name please!");
+    if (name_input.val() == "") { //empty name?
+        alert("Entrez votre pseudo !");
         return;
     }
     if (message_input.val() == "") { //emtpy message?
-        alert("Enter Some message Please!");
+        alert("Ecrivez un message !");
         return;
     }
 

@@ -16,6 +16,7 @@ websocket = new WebSocket(wsUri);
 
 websocket.onopen = function(ev) { // connection is open 
     msgBox.append('<div class="system_msg" style="color:#bbbbbb">Welcome to my "Demo WebSocket Chat box"!</div>'); //notify user
+    scrollToBottom();
 }
 // Message received from server
 websocket.onmessage = function(ev) {
@@ -47,6 +48,7 @@ websocket.onerror = function(ev) {
 };
 websocket.onclose = function(ev) {
     msgBox.append('<div class="system_msg">Connection Closed</div>');
+    scrollToBottom();
 };
 
 //Message send button
@@ -109,3 +111,36 @@ function store_message(msg) {
                 room: room },
     });
 }
+
+// Vérifie que les deux mots de passe saisis par l'utilisateur sont identiques
+// Affiche le résultat dans un span.
+function valid() {
+    let password = document.querySelector("input[name='password']");
+    let checkPassword = document.querySelector("input[name='pswdconfirm']");
+    let submitButton = document.querySelector("button");
+    let pswdMsg = document.getElementById("pswdCheck");
+
+    if (password.value == checkPassword.value && password.value !=="" && checkPassword.value !=="") {
+            submitButton.disabled = false;
+            pswdMsg.innerHTML = "✔";
+            pswdMsg.style.color = "green";
+            checkPassword.style.marginLeft = "3.5%";
+    } else {
+            submitButton.disabled = true;
+            pswdMsg.innerHTML = "✖";
+            pswdMsg.style.color = "red";
+            checkPassword.style.marginLeft = "3.5%";
+    }
+}
+
+// Scroll en bas des messages enregistrés lors du chargement de la page
+window.onload = ()=> {
+    const messageBox = document.querySelector("#message-box");
+    messageBox.scrollTop = messageBox.scrollHeight;
+};
+
+// Scroll en bas des messages enregistrés lors de la connexion à la chatbox
+function scrollToBottom() {
+    const messageBox = document.querySelector("#message-box");
+    messageBox.scrollTop = messageBox.scrollHeight;
+};

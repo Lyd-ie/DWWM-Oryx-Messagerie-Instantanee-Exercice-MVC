@@ -56,7 +56,7 @@ class chatModel {
 	public function searchMessages($input) { // Effectue une recherche en bdd selon le(s) mot(s) clé(s) de $input
 
 		// Requête de recherche joignant 3 tables afin de restituer aussi les noms des rooms et utilisateurs concernés
-		$sql = "SELECT user_name, msg_text, msg_date, room_name FROM messages
+		$sql = "SELECT user_name, msg_text, msg_date, msg_color, room_name, room_id FROM messages
 				JOIN users
 				ON messages.msg_user_id = users.user_id
 				JOIN rooms

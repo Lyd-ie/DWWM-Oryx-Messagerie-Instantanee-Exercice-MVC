@@ -18,12 +18,12 @@
 
     <div>
             
-        <?php if (!empty($result)) {
-            for ($i = 0; $i < count($result); $i++) {
-                $user = $result[$i]->user_name;
-                $message = $result[$i]->msg_text;
-                $date = $result[$i]->msg_date;
-                $room = $result[$i]->room_name;
+        <?php if (!empty($research)) {
+            for ($i = 0; $i < count($research); $i++) {
+                $user = $research[$i]->user_name;
+                $message = $research[$i]->msg_text;
+                $date = $research[$i]->msg_date;
+                $room = $research[$i]->room_name;
 
                 echo '<div>'.$user.' @ '.$room.' le ' .$date.' a écrit :<br>'.$message.'</div>';
             }

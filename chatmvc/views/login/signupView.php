@@ -4,74 +4,42 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Messagerie | Signup</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Messagerie | Inscription</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="../css/logo">
 </head>
 
 <body>
-    <div class="container">
+    <div class="up">
+        <p class="back">⪡ <a href="/online_formapro/messagerie/chatmvc">Retour</a></p>
+        <img src="../css/logo" alt="logo">
         <h3>CREER UN COMPTE</h3>
-        <div class="row">
-            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-
-                <form method="post">
-                    <div class="form-group">
-                        <label>Entrez votre pseudo</label>
-                        <input class="form-control" type="text" name="pseudo" pattern="^[A-Za-zÀ-ÿ0-9 '-]+$" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Choisissez votre couleur</label>
-                        <input class="form-control" type="text" name="color" pattern="^[A-Za-zÀ-ÿ0-9 '-]+$" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Email :</label>
-                        <input class="form-control" type="email" name="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Mot de passe :</label>
-                        <input class="form-control" type="password" name="password" required>
-                    </div>
+        <div>
+            <form method="post">
+                <div>
+                    <input name="pseudo" placeholder="Entrez votre pseudo" pattern="^[A-Za-zÀ-ÿ0-9 '-]+$" required>
+                </div>
                 
-                    <div class="form-group">
-                        <label id="mdp">Confirmez le mot de passe :</label>
-                        <!-- La fonction valid() est appelée lors de la désactivation de l'input -->
-                        <input class="form-control" type="password" name="pswdconfirm" onBlur="valid()" required>
-                        <span id="pswdCheck"></span>
-                    </div>
+                <div>
+                    <input type="email" name="email" placeholder="Entrez votre email" pattern="^[\w-]+@([\w-]+)+[\w-]{2,4}$" required>
+                </div>
 
-                    <button type="submit" name="signup" class="btn btn-info">ENREGISTRER</button>
-                </form>
-            </div>
+                <div>
+                    <!-- La fonction valid() est appelée lors de la désactivation de l'input -->
+                    <input type="password" name="password" placeholder="Mot de passe" maxlength="50" onBlur="valid()" required>
+                </div>
+            
+                <div>
+                    <!-- La fonction valid() est appelée lors de la désactivation de l'input -->
+                    <input type="password" name="pswdconfirm" onBlur="valid()" placeholder="Confirmez le mot de passe" maxlength="50" required>
+                    <span id="pswdCheck"></span>
+                </div>
+
+                <button class="margin-top" type="submit" name="signup"> ENREGISTRER </button>
+            </form>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script >
-
-        // Vérifie que les deux mots de passe saisis par l'utilisateur sont identiques
-        // Affiche le résultat dans un span.
-        function valid() {
-            let password = document.querySelector("input[name='password']");
-            let checkPassword = document.querySelector("input[name='pswdconfirm']");
-            let submitButton = document.querySelector("button[name='signup']");
-            let pswdMsg = document.getElementById("pswdCheck");
-
-            if (password.value == checkPassword.value) {
-                submitButton.disabled = false;
-                pswdMsg.innerHTML = "&nbsp;Mots de passe identiques";
-                pswdMsg.style.fontWeight = "800";
-                pswdMsg.style.color = "green";
-            }
-            else {
-                submitButton.disabled = true;
-                pswdMsg.innerHTML = "&nbsp;Mots de passe différents";
-                pswdMsg.style.fontWeight = "800";
-                pswdMsg.style.color = "red";
-            }
-        }
-    </script> 
+    <script src="../js/main.js"></script> 
 </body>
 </html>

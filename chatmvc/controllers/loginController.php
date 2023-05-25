@@ -8,7 +8,7 @@ class loginController {
 
     
     public function loginIndex() { // Gère la page de login
-
+        
         // Si le bouton login n'a pas encore été activé
         if (!isset($_POST['login'])) {
             // Affiche la page de login
@@ -27,6 +27,11 @@ class loginController {
                 echo '<script> alert("Utilisateur inconnu, veuillez vérifier vos identifiants");
                 document.location.href=""; </script>';
             }
+        }
+
+        // Si le bouton de déconnection a été activé
+        if (isset ($_POST['logout'])) {
+            session_destroy(); // réinitialise $_SESSION
         }
     }
     
